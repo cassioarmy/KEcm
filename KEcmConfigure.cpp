@@ -19,26 +19,16 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
  */
-
 #include "KEcmConfigure.h"
 #include <KConfigSkeleton>
 #include "KEcmAuthentication.h"
 #include <KPageWidgetItem>
 #include <KXmlGuiWindow>
 #include <KIcon>
+#include <KLocale>
+#include "KEcmSettings.h"
 
 
-class Conexao : public QWidget{
-  
-  Q_OBJECT
-  
-public:
-  Conexao(QWidget *parent) 
-      : QWidget(parent)
-  {
-   
-  }
-};
 
 kEcmConfigure::kEcmConfigure()
 {
@@ -55,12 +45,18 @@ kEcmConfigure::kEcmConfigure(KMainWindow  *parent)
    KConfigDialog* pDialog = new KConfigDialog(parent, "settings", KEcmSettings::self());
    pDialog->setFaceType(KPageDialog::List);
    
-  // KEcmSettingsHelper *conexao = new KEcmSettingsHelper(0,"Conexao"); 
-  // KPageWidgetItem *itemConexao = new KPageWidgetItem(new QWidget(this),QString("Conexão"));
+   ConexaoWidget *con = new ConexaoWidget(pDialog);
+   
+   //KPageWidgetItem *itemConexao = new KPageWidgetItem(new QWidget(),QString("Conexão"));
    //itemConexao->setIcon(KIcon("configure"));
    
-   //pDialog->addPage( itemConexao,QString("Conexão"));
- //  pDialog->show();
+   
+ //  KPageWidget *pageWiget = new KPageWidget();
+  // pageWiget->addPage(new QWidget(itemConexao));
+   
+   const QString conexao(ki18n("Conexão").toString());
+   pDialog->addPage( con , conexao);
+   //pDialog->show();
    
 }
 

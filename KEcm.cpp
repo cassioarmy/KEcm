@@ -148,8 +148,7 @@ void KEcm::httpReadyRead(QNetworkReply *reply)
        
        std::cout << "\n" << message.faultDetail().toString().toStdString();
 	qDebug("Errorssssss: %s", qPrintable(message.faultString().toString()));
-    }
-    else {
+    }else {
        /* QString res = message.returnValue().toString();
         QDateTime dt = QDateTime::fromString(res, Qt::ISODate);
         if (dt.isValid())

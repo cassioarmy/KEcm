@@ -7,6 +7,8 @@ SET(QT_USE_QTXML TRUE)
 find_package(Qt4 REQUIRED)
 find_package(KDE4 REQUIRED)
 
+#add_definitions(${QT_DEFINITIONS} ${KDE4_DEFINITIONS})
+
 include_directories( ${QT_INCLUDES}  ${KDE4_INCLUDES}  ${CMAKE_CURRENT_BINARY_DIR} /usr/include/qt4/qtsoap)
 
 #include_directories(/usr/include/qt4/qtsoap)
@@ -18,8 +20,10 @@ include_directories( ${QT_INCLUDES}  ${KDE4_INCLUDES}  ${CMAKE_CURRENT_BINARY_DI
 set(KEcm_SRCS KEcmConfigure.cpp KEcm.cpp main.cpp)
 
 kde4_add_kcfg_files(KEcm_SRCS GENERATE_MOC KEcmSettings.kcfgc)
+kde4_add_ui_files(KEcm_SRCS conexao.ui)
 
 qt4_automoc(${KEcm_SRCS})
+
 add_executable(KEcm ${KEcm_SRCS})
 
 target_link_libraries(KEcm  ${KDE4_KDEUI_LIBS} 

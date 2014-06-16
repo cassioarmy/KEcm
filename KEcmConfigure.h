@@ -30,6 +30,16 @@
 #include "KEcmSettings.h"
 #include <QWidget>
 #include <KIcon>
+#include "ui_conexao.h"
+
+class ConexaoWidget : public QWidget{  
+public:
+    explicit ConexaoWidget(QWidget *parent):QWidget(parent){
+      ui.setupUi(this);
+    }
+private:
+  Ui::Conexao ui;
+};
 
 class kEcmConfigure 
 {
