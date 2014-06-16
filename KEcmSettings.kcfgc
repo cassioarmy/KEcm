@@ -1,0 +1,4 @@
+File=KEcmSettings.kcfg 
+ClassName=KEcmSettings 
+Singleton=true 
+Mutators=true
